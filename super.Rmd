@@ -61,7 +61,7 @@ worker %>%
   summarise(Single = n())
 ```
 ```{r}
-### SHOW THE NUMBER  MARRIED  CUSTUMER in the Gender column  07
+### SHOW THE NUMBER  MARRIED  CUSTUMER using the Gender column  07
 
 worker %>%
   filter(Marital_Status == "M")%>%
@@ -93,7 +93,7 @@ worker %>%
   summarise(Homeowners = n())
 ```
 ```{r}
-### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in product category  11
+### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in each product category  11
 
 worker %>%
   group_by(Product_Category)  %>%
@@ -101,7 +101,7 @@ worker %>%
 arrange(desc(Totalunitsold))
 ```
 ```{r}
-### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in product department  12
+### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in each product department  12
 
 worker %>%
   group_by(Product_Department)  %>%
