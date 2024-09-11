@@ -1,0 +1,162 @@
+---
+title: "assignment"
+output: html_document
+date: "2024-09-08"
+---
+
+```
+```
+```{r}
+library(tidyverse)
+```
+```{r}
+worker <- read.csv(file.choose())
+```
+```{r}
+str(worker)
+view(worker)
+```
+```{r}
+### SHOW THE TOTAL NUMBER OF sales made IN EACH COUNTRY    01
+worker %>%
+  group_by(Country)  %>%
+  summarise(count = n())
+```
+```{r}
+### SHOW THE NUMBER OF SALES  IN EACH PRODUCT PRODUCT CATEGORY   02
+
+worker %>%
+  group_by(Product_Category)  %>%
+  summarise(count = n())
+```
+```{r}
+### SHOW THE NUMBER OF SALES  IN EACH PRODUCT PRODUCT department  03
+
+worker %>%
+  group_by(Product_Department)  %>%
+  summarise(count = n())
+```
+```
+```{r}
+```{r}
+### SHOW THE TOTAL REVENUE MADE IN EACH COUNTRY    04
+worker %>%
+  group_by(Country)  %>%
+ summarise(Totalrevenue =sum(Revenue))
+```
+```{r}
+### SHOW THE NUMBER OF MALE AND FEMALE CUSTUMER   05
+
+worker %>%
+  filter(Gender == "M"| Gender=="F")%>%
+  group_by(Gender)  %>%
+  summarise(count = n())
+```
+```{r}
+### SHOW THE NUMBER  SINGLE  CUSTUMER in the Gender column  06
+
+worker %>%
+  filter(Marital_Status == "S")%>%
+  group_by(Gender)  %>%
+  summarise(Single = n())
+```
+```{r}
+### SHOW THE NUMBER  MARRIED  CUSTUMER in the Gender column  07
+
+worker %>%
+  filter(Marital_Status == "M")%>%
+  group_by(Gender)  %>%
+  summarise(Married = n())
+```
+```{r}
+### SHOW THE TOTAL REVENUE MADE IN EACH CITY    08
+worker %>%
+  group_by(City)  %>%
+ summarise(Totalrevenue =sum(Revenue))%>%
+arrange(desc(Totalrevenue))
+```
+```{r}
+### SHOW THE TOP 5 CITIES WITH THE HIGHEST REVENUE  09
+worker %>%
+  group_by(City)  %>%
+ summarise(Totalrevenue =sum(Revenue)) %>%
+arrange(desc(Totalrevenue))%>%
+head(5)
+```
+```
+```{r}
+```{r}
+### SHOW THE NUMBER OF  CUSTUMER THAT ARE HOMEOWNER  10
+
+worker %>%
+  filter(Homeowner == "Y")%>%
+  summarise(Homeowners = n())
+```
+```{r}
+### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in product category  11
+
+worker %>%
+  group_by(Product_Category)  %>%
+  summarise(Totalunitsold =sum(Units_Sold))%>%
+arrange(desc(Totalunitsold))
+```
+```{r}
+### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in product department  12
+
+worker %>%
+  group_by(Product_Department)  %>%
+ summarise(Totalunitsold =sum(Units_Sold))%>%
+arrange(desc(Totalunitsold))
+```
+```{r}
+### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in each country  13
+
+worker %>%
+  group_by(Country)  %>%
+  summarise(Totalunitsold =sum(Units_Sold))%>%
+arrange(desc(Totalunitsold))
+```
+```{r}
+### SHOW THE  TOTAL NUMBER  OF UNIT SOLD in each Food family  14
+
+worker %>%
+  group_by(Product_Family)  %>%
+  summarise(Totalunitsold =sum(Units_Sold))%>%
+arrange(desc(Totalunitsold))
+```
+```{r}
+### SHOW THE TOTAL REVENUE MADE IN EACH Product family    15
+worker %>%
+  group_by(Product_Family)  %>%
+ summarise(Totalrevenue =sum(Revenue))
+```
+
+```
+```{r}
+
+```
+```{r}
+
+```
+
+```
+
+
+
+
+
+
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
