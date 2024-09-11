@@ -130,33 +130,42 @@ worker %>%
   group_by(Product_Family)  %>%
  summarise(Totalrevenue =sum(Revenue))
 ```
+```{r}
+#show the number of customer that purchased upto 4 unit of item    16
+worker %>%
+  filter(Units_Sold == 4) %>%
+  summarise(count = n())
+```
+```{r}
+#show the number of customer that purchased upto 4 unit of item in each product family    17
+
+worker %>%
+  filter(Units_Sold == 4) %>%
+  group_by(Product_Family)%>%
+  summarise(count = n())
+```
+```{r}
+## show the number of home owners who puchase UPTO 5 unit     18
+worker %>%
+  filter(Units_Sold ==5& Homeowner == "Y") %>%
+    group_by(Homeowner)%>%
+  summarise(count = n())
 
 ```
 ```{r}
+##SHOW THE NUMBER OF CUSTOMERS HAVING 3 CHILDREN      19
+worker %>%
+  filter(Children == "3") %>%
+  summarise(count = n())
 
 ```
 ```{r}
+##SHOW THE NUMBER OF CUSTOMERS HAVING 5 CHILDREN USING THE HOME OWNER COLUMER.. 20
+worker %>%
+  filter(Children == "5"& Homeowner =="Y") %>%
+  group_by(Homeowner)%>%
+  summarise(count = n())
+
 
 ```
 
-```
-
-
-
-
-
-
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
